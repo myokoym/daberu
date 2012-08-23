@@ -2,7 +2,7 @@
 
 おしゃべりなオブジェクトをつくることができます。
 
-[You can create an object TALKATIVE.]
+[You can create a talkative object.]
 
 ## Installation
 
