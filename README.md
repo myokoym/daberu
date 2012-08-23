@@ -20,7 +20,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    d = Daberu.new
+    d.puts "Whoops!"
+    #=> "Method: puts, Arguments: [\"Whoops!\"], Block: "
+        Whoops!
+
+    a = Daberu.new([])
+    a << 1
+    a << 2
+    a << 3
+    a.each do |i|
+      p i
+    end
+    #=> "Method: <<, Arguments: [1], Block: "
+        "Method: <<, Arguments: [2], Block: "
+        "Method: <<, Arguments: [3], Block: "
+        "Method: each, Arguments: [], Block: #<Proc:0x9d32db4@daberu.rb:23>"
+        1
+        2
+        3
 
 ## Contributing
 
