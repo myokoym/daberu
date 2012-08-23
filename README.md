@@ -1,6 +1,8 @@
 # Daberu
 
-TODO: Write a gem description
+おしゃべりなオブジェクトをつくることができます。
+
+[You can create an object TALKATIVE.]
 
 ## Installation
 
