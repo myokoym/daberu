@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+    require 'daberu'
+
     d = Daberu.new
     d.puts "Whoops!"
     #=> "Method: puts, Arguments: [\"Whoops!\"], Block: "
