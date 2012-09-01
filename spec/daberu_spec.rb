@@ -5,14 +5,18 @@ require 'tempfile'
 
 describe Daberu do
   it "is no argument" do
+    t = Tempfile.open("daberu")
+    $stdout = File.open(t, "w")
     d = Daberu.new
     d.class.should == Object
+    $stdout.flush
+    $stdout = STDOUT
   end 
 
   it "is Array object" do
-    a = Daberu.new([])
     t = Tempfile.open("daberu")
     $stdout = File.open(t, "w")
+    a = Daberu.new([])
     a << "a"
     a << "b"
     a << "c"
@@ -55,6 +59,5 @@ describe Daberu do
       lines[0].should =~ /Method: class, Arguments: \[\], Block: /
     }
   end 
-
 end
 
