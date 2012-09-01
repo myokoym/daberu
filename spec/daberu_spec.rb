@@ -1,12 +1,13 @@
 # encoding: utf-8
 
 require 'daberu'
+require 'tempfile'
 
 describe Daberu do
   it "is no argument" do
     d = Daberu.new
     d.class.should == Daberu
-  end
+  end 
 
   it "is Array object" do
     a = Daberu.new([])
@@ -18,6 +19,27 @@ describe Daberu do
       actual << i
     end
     actual.should == %w[a b c]
+  end
+
+  it "is stdout" do
+    t = Tempfile.open("daberu")
+    $stdout = File.open(t, "w")
+    #$stdout_old = $stdout.dup
+    #$stdout.reopen(t)
+    a = Daberu.new([])
+    a << "a"
+    actual = []
+    a.each do |i|
+      actual << i
+    end
+    $stdout.flush
+    $stdout = STDOUT
+    #$stdout.reopen stdout_old
+    File.open(t) {|f|
+      lines = f.read.split(/\n/)
+      lines[0].should =~ /Method: <<, Arguments: \[(\\)*"a(\\)*"\], Block: /
+      lines[1].should =~ /Method: each, Arguments: \[\], Block: #<Proc:/
+    }
   end
 end
 
