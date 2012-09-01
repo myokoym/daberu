@@ -11,6 +11,8 @@ describe Daberu do
 
   it "is Array object" do
     a = Daberu.new([])
+    t = Tempfile.open("daberu")
+    $stdout = File.open(t, "w")
     a << "a"
     a << "b"
     a << "c"
@@ -18,14 +20,14 @@ describe Daberu do
     a.each do |i|
       actual << i
     end
+    $stdout.flush
+    $stdout = STDOUT
     actual.should == %w[a b c]
   end
 
   it "is stdout" do
     t = Tempfile.open("daberu")
     $stdout = File.open(t, "w")
-    #$stdout_old = $stdout.dup
-    #$stdout.reopen(t)
     a = Daberu.new([])
     a << "a"
     actual = []
@@ -34,7 +36,6 @@ describe Daberu do
     end
     $stdout.flush
     $stdout = STDOUT
-    #$stdout.reopen stdout_old
     File.open(t) {|f|
       lines = f.read.split(/\n/)
       lines[0].should =~ /Method: <<, Arguments: \[(\\)*"a(\\)*"\], Block: /
