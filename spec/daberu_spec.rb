@@ -42,8 +42,8 @@ describe Daberu do
     $stdout = STDOUT
     File.open(t) {|f|
       lines = f.read.split(/\n/)
-      lines[0].should =~ /Method: <<, Arguments: \[(\\)*"a(\\)*"\], Block: /
-      lines[1].should =~ /Method: each, Arguments: \[\], Block: #<Proc:/
+      lines[0].should =~ /Class: Array, Method: <<, Arguments: \[(\\)*"a(\\)*"\], Block: /
+      lines[1].should =~ /Class: Array, Method: each, Arguments: \[\], Block: #<Proc:/
     }
   end
 
@@ -56,7 +56,7 @@ describe Daberu do
     $stdout = STDOUT
     File.open(t) {|f|
       lines = f.read.split(/\n/)
-      lines[0].should =~ /Method: class, Arguments: \[\], Block: /
+      lines[0].should =~ /Class: Object, Method: class, Arguments: \[\], Block: /
     }
   end 
 end
