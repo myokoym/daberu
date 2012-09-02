@@ -5,6 +5,7 @@ class Daberu
     undef_method m unless m.to_s =~ /^__|method_missing|respond_to?|object_id/
   end
 
+  attr_accessor :format
   def initialize(obj = Object.new)
     @obj = obj
     @format = "Class: %s, Method: %s, Arguments: %s, Block: %s"
