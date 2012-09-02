@@ -10,7 +10,7 @@ class Daberu
   end
 
   def method_missing(name, *args, &block)
-    p "Class: #{@obj.class}, Method: #{name}, Arguments: #{args}, Block: #{block}"
+    p "Class: %s, Method: %s, Arguments: %s, Block: %s" %  [@obj.class, name, args, block]
     @obj.send(name, *args, &block)
   end
 end
