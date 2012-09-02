@@ -64,7 +64,7 @@ describe Daberu do
     t = Tempfile.open("daberu")
     $stdout = File.open(t, "w")
     d = Daberu.new
-    d.format = "%s#%s(%s): %s"
+    Daberu.format_set(d, "%s#%s(%s): %s")
     d.class
     $stdout.flush
     $stdout = STDOUT
@@ -80,7 +80,7 @@ describe Daberu do
     d = Daberu.new
     $stdout.flush
     $stdout = STDOUT
-    d.format.should == "Class: %s, Method: %s, Arguments: [%s], Block: %s"
+    Daberu.format_get(d).should == "Class: %s, Method: %s, Arguments: [%s], Block: %s"
   end 
 end
 

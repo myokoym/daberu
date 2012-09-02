@@ -39,9 +39,9 @@ Or install it yourself as:
         2
         3
 
-    p a.format  #=> "Class: %s, Method: %s, Arguments: [%s], Block: %s"
-    a.format = "%s#%s(%s)"
-    p a.format  #=> "%s#%s(%s)"
+    p Daberu.format_get(a)  #=> "Class: %s, Method: %s, Arguments: [%s], Block: %s"
+    Daberu.format_set(a, "%s#%s(%s)")
+    p Daberu.format_get(a)  #=> "%s#%s(%s)"
     a << 4  #=> "Array#<<(4)"
 
 ### Ruby version
