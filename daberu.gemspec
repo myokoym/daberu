@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["myokoym@gmail.com"]
   gem.description   = %q{Create a talkative object.}
   gem.summary       = %q{Create a talkative object}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/myokoym/daberu"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
