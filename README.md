@@ -25,16 +25,21 @@ Or install it yourself as:
     require 'daberu'
 
     a = Daberu.new([])
-    a << 1  #=> "Method: <<, Arguments: [1], Block: "
-    a << 2  #=> "Method: <<, Arguments: [2], Block: "
-    a << 3  #=> "Method: <<, Arguments: [3], Block: "
+    a << 1  #=> "Class: Array, Method: <<, Arguments: [1], Block: "
+    a << 2  #=> "Class: Array, Method: <<, Arguments: [2], Block: "
+    a << 3  #=> "Class: Array, Method: <<, Arguments: [3], Block: "
     a.each do |i|
       p i
     end
-    #=> "Method: each, Arguments: [], Block: #<Proc:...>"
+    #=> "Class: Array, Method: each, Arguments: [], Block: #<Proc:...>"
         1
         2
         3
+
+    p a.format  #=> "Class: %s, Method: %s, Arguments: [%s], Block: %s"
+    a.format = "%s#%s(%s)"
+    p a.format  #=> "%s#%s(%s)"
+    a << 4  #=> "Array#<<(1)"
 
 ## Contributing
 
