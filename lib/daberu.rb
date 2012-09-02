@@ -7,10 +7,11 @@ class Daberu
 
   def initialize(obj = Object.new)
     @obj = obj
+    @format = "Class: %s, Method: %s, Arguments: %s, Block: %s"
   end
 
   def method_missing(name, *args, &block)
-    p "Class: %s, Method: %s, Arguments: %s, Block: %s" %  [@obj.class, name, args, block]
+    p @format %  [@obj.class, name, args, block]
     @obj.send(name, *args, &block)
   end
 end
