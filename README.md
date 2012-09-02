@@ -42,9 +42,9 @@ Or install it yourself as:
     p a.format  #=> "Class: %s, Method: %s, Arguments: [%s], Block: %s"
     a.format = "%s#%s(%s)"
     p a.format  #=> "%s#%s(%s)"
-    a << 4  #=> "Array#<<(1)"
+    a << 4  #=> "Array#<<(4)"
 
-## Ruby version
+### Ruby version
 
 開発/テストは1.9系で行なっています。
 [Development and Testing on 1.9.x.]
