@@ -3,6 +3,9 @@
 おしゃべりなオブジェクトをつくることができます。
 [You can create a talkative object.]
 
+メソッドが呼ばれると、その情報を指定されたフォーマットで出力します。
+[If a method is called, it will output in the format which had the information specified.]
+
 主な用途：デバッグ
 [One way, Debugging.]
 
@@ -40,6 +43,14 @@ Or install it yourself as:
     a.format = "%s#%s(%s)"
     p a.format  #=> "%s#%s(%s)"
     a << 4  #=> "Array#<<(1)"
+
+## Ruby version
+
+開発/テストは1.9系で行なっています。
+[Development and Testing on 1.9.x.]
+
+1.8系でも動作しますが、ドキュメントと挙動が違うかもしれません。
+[Although 1.8.x operates, an action may differ from documents.]
 
 ## Contributing
 
