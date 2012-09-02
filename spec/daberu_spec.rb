@@ -64,13 +64,13 @@ describe Daberu do
     t = Tempfile.open("daberu")
     $stdout = File.open(t, "w")
     d = Daberu.new
-    d.format = "%s:%s:%s:%s"
+    d.format = "%s#%s(%s): %s"
     d.class
     $stdout.flush
     $stdout = STDOUT
     File.open(t) {|f|
       lines = f.read.split(/\n/)
-      lines[0].should =~ /Object:class:\[\]:/
+      lines[0].should =~ /Object#class\(\): /
     }
   end 
 
@@ -80,7 +80,7 @@ describe Daberu do
     d = Daberu.new
     $stdout.flush
     $stdout = STDOUT
-    d.format.should == "Class: %s, Method: %s, Arguments: %s, Block: %s"
+    d.format.should == "Class: %s, Method: %s, Arguments: [%s], Block: %s"
   end 
 end
 

@@ -8,11 +8,11 @@ class Daberu
   attr_accessor :format
   def initialize(obj = Object.new)
     @obj = obj
-    @format = "Class: %s, Method: %s, Arguments: %s, Block: %s"
+    @format = "Class: %s, Method: %s, Arguments: [%s], Block: %s"
   end
 
   def method_missing(name, *args, &block)
-    p @format %  [@obj.class, name, args, block]
+    p @format % [@obj.class, name, args.to_s.gsub(/^\[|\]$/, ""), block]
     @obj.send(name, *args, &block)
   end
 end
