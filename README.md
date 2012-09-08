@@ -27,7 +27,7 @@ Or install it yourself as:
 
     require 'daberu'
 
-    a = Daberu.new([])
+    a = Daberu::Talker.new([])
     a << 1  #=> "Class: Array, Method: <<, Arguments: [1], Block: "
     a << 2  #=> "Class: Array, Method: <<, Arguments: [2], Block: "
     a << 3  #=> "Class: Array, Method: <<, Arguments: [3], Block: "
@@ -39,9 +39,10 @@ Or install it yourself as:
         2
         3
 
-    p Daberu.format_get(a)  #=> "Class: %s, Method: %s, Arguments: [%s], Block: %s"
-    Daberu.format_set(a, "%s#%s(%s)")
-    p Daberu.format_get(a)  #=> "%s#%s(%s)"
+    include Daberu  # With liking
+    p Talker.format_get(a)  #=> "Class: %s, Method: %s, Arguments: [%s], Block: %s"
+    Talker.format_set(a, "%s#%s(%s)")
+    p Talker.format_get(a)  #=> "%s#%s(%s)"
     a << 4  #=> "Array#<<(4)"
 
 ### Ruby version
