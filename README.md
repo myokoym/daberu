@@ -1,4 +1,4 @@
-# Daberu
+# Daberu - Create a talkative object. [![Build Status](https://secure.travis-ci.org/myokoym/daberu.png?branch=master)](http://travis-ci.org/myokoym/daberu)
 
 おしゃべりなオブジェクトをつくることができます。
 [You can create a talkative object.]
