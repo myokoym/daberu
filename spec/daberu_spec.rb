@@ -92,5 +92,18 @@ describe Daberu::Talker do
     $stdout = STDOUT
     Daberu::Talker.object_get(d).should == obj
   end 
+
+  it "is set to inner object" do
+    t = Tempfile.open("daberu")
+    $stdout = File.open(t, "w")
+    obj1 = Object.new
+    d = Daberu::Talker.new(obj1)
+    $stdout.flush
+    $stdout = STDOUT
+    obj2 = Object.new
+    Daberu::Talker.object_set(d, obj2)
+    Daberu::Talker.object_get(d).should_not == obj1
+    Daberu::Talker.object_get(d).should == obj2
+  end 
 end
 

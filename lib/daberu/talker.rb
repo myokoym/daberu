@@ -28,6 +28,10 @@ module Daberu
       obj.__daberu_object_get__
     end
   
+    def self.object_set(obj, new)
+      obj.__daberu_object_set__(new)
+    end
+  
     def __daberu_format_get__
       @format
     end
@@ -38,6 +42,10 @@ module Daberu
 
     def __daberu_object_get__
       @obj
+    end
+
+    def __daberu_object_set__(obj)
+      @obj = obj
     end
   end
 end
