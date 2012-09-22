@@ -82,5 +82,15 @@ describe Daberu::Talker do
     $stdout = STDOUT
     Daberu::Talker.format_get(d).should == "Class: %s, Method: %s, Arguments: [%s], Block: %s"
   end 
+
+  it "is get to inner object" do
+    t = Tempfile.open("daberu")
+    $stdout = File.open(t, "w")
+    obj = Object.new
+    d = Daberu::Talker.new(obj)
+    $stdout.flush
+    $stdout = STDOUT
+    Daberu::Talker.object_get(d).should == obj
+  end 
 end
 

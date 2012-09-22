@@ -24,12 +24,20 @@ module Daberu
       obj.__daberu_format_set__(str)
     end
   
+    def self.object_get(obj)
+      obj.__daberu_object_get__
+    end
+  
     def __daberu_format_get__
       @format
     end
   
     def __daberu_format_set__(str)
       @format = str
+    end
+
+    def __daberu_object_get__
+      @obj
     end
   end
 end
