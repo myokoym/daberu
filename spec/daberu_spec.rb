@@ -79,7 +79,7 @@ describe Daberu::Talker do
     Daberu::Talker.object_get(d).should == obj2
   end 
 
-  after do
+  after(:each) do
     $stdout.flush
     $stdout = STDOUT
   end
