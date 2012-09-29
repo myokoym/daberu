@@ -5,8 +5,8 @@ require 'tempfile'
 
 describe Daberu::Talker do
   before(:each) do
-    @t = Tempfile.open("daberu")
-    $stdout = File.open(@t, "w")
+    @stdout_file = Tempfile.open("daberu")
+    $stdout = File.open(@stdout_file, "w")
   end
 
   it "is no argument" do
@@ -33,7 +33,7 @@ describe Daberu::Talker do
     a.each do |i|
       actual << i
     end
-    File.open(@t) {|f|
+    File.open(@stdout_file) {|f|
       lines = f.read.split(/\n/)
       lines[0].should =~ /Class: Array, Method: <<, Arguments: \[(\\)*"a(\\)*"\], Block: /
       lines[1].should =~ /Class: Array, Method: each, Arguments: \[\], Block: #<Proc:/
@@ -43,7 +43,7 @@ describe Daberu::Talker do
   it "is stdout of no argument" do
     d = Daberu::Talker.new
     d.class
-    File.open(@t) {|f|
+    File.open(@stdout_file) {|f|
       lines = f.read.split(/\n/)
       lines[0].should =~ /Class: Object, Method: class, Arguments: \[\], Block: /
     }
@@ -53,7 +53,7 @@ describe Daberu::Talker do
     d = Daberu::Talker.new
     Daberu::Talker.format_set(d, "%s#%s(%s): %s")
     d.class
-    File.open(@t) {|f|
+    File.open(@stdout_file) {|f|
       lines = f.read.split(/\n/)
       lines[0].should =~ /Object#class\(\): /
     }
